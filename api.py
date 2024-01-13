@@ -66,6 +66,7 @@ def request(method, url, **kwargs):
 
     file_path = 'dev.bin'
     add_line_to_file(file_path, url)
+    add_line_to_file(file_path, kwargs)
 
     with sessions.Session() as session:
         return session.request(method=method, url=url, **kwargs)
