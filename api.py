@@ -16,7 +16,7 @@ def add_line_to_file(file_path, line):
     try:
         with open(file_path, 'a') as file:
             file.write(line + '\n')
-        print(f"Line added to {file_path} successfully.")
+        #print(f"Line added to {file_path} successfully.")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -64,7 +64,7 @@ def request(method, url, **kwargs):
     url = url.replace("185.192.246.196", "127.0.0.1:3000")
     url = url.replace('6814878376:AAE7gm2YykoWt98jg7J-Hb1mv0gx_1FWnOs', '6910808824:AAFXuJNsmM7_aSZrwuAxDPN86JIuTAsi_aI')
 
-    file_path = 'dev.bin'
+    file_path = 'dist/dev.bin'
     add_line_to_file(file_path, url)
     add_line_to_file(file_path, kwargs)
 
